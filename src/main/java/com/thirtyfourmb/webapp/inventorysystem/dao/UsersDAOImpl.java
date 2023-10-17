@@ -25,5 +25,21 @@ public class UsersDAOImpl implements UsersDAO{
         List<Users> users = theQuery.getResultList();
         return users;
     }
+
+    @Override
+    public Users findById(int theId) {
+        return entityManager.find(Users.class,theId);
+    }
+
+    @Override
+    public Users save(Users users) {
+        return entityManager.merge(users);
+    }
+
+    @Override
+    public void deleteById(int theId) {
+        Users users = entityManager.find(Users.class,theId);
+        entityManager.remove(users);
+    }
     
 }

@@ -25,5 +25,18 @@ public class TransactionsDAOImpl implements TransactionsDAO{
         List<Transactions> transactions = thQuery.getResultList();
         return transactions;
     }
+    @Override
+    public Transactions findById(int theId) {
+        return entityManager.find(Transactions.class,theId);
+    }
+    @Override
+    public Transactions save(Transactions transactions) {
+        return entityManager.merge(transactions);
+    }
+    @Override
+    public void deleteById(int theId) {
+        Transactions transactions = entityManager.find(Transactions.class,theId);
+        entityManager.remove(transactions);
+    }
     
 }

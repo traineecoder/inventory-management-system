@@ -6,4 +6,7 @@ import com.thirtyfourmb.webapp.inventorysystem.entity.Inventory;
 
 public interface InventoryService {
     List<Inventory> findAll();
+    Inventory findById(int theId);
+    Inventory save(Inventory inventory);
+    void deleteById(int theId);
 }

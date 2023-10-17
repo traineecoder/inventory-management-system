@@ -5,8 +5,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import com.thirtyfourmb.webapp.inventorysystem.dao.InventoryDAO;
-
 @SpringBootApplication
 public class InventorysystemApplication {
 
@@ -14,19 +12,12 @@ public class InventorysystemApplication {
 		SpringApplication.run(InventorysystemApplication.class, args);
 	}
 	@Bean
-	public CommandLineRunner commandLineRunner(InventoryDAO inventoryDAO) {
+	public CommandLineRunner commandLineRunner() {
 
 		return runner -> {
-			// createStudent(studentDAO);
-
-			// createMultipleStudents(studentDAO);
-
-			readStudent(inventoryDAO);
+			System.out.println("Hello World");
 
 		};
-	}
-	private void readStudent(InventoryDAO inventoryDAO) {
-		
 	}
 
 }

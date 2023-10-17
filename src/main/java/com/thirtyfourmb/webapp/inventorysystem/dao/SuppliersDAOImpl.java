@@ -25,5 +25,18 @@ public class SuppliersDAOImpl implements SuppliersDAO{
         List<Suppliers> suppliers = theQuery.getResultList();
         return suppliers;
     }
+    @Override
+    public Suppliers findById(int theId) {
+        return entityManager.find(Suppliers.class,theId);
+    }
+    @Override
+    public Suppliers save(Suppliers suppliers) {
+        return entityManager.merge(suppliers);
+    }
+    @Override
+    public void deleteById(int theId) {
+        Suppliers suppliers = entityManager.find(Suppliers.class,theId);
+        entityManager.remove(suppliers);
+    }
 
 }

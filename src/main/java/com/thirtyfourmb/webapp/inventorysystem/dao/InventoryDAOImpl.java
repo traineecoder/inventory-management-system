@@ -30,5 +30,18 @@ public class InventoryDAOImpl implements InventoryDAO{
         //return the list
         return inventory;
     }
+    @Override
+    public Inventory findById(int theId) {
+        return entityManager.find(Inventory.class, theId);
+    }
+    @Override
+    public Inventory save(Inventory inventory) {
+        return entityManager.merge(inventory);
+    }
+    @Override
+    public void deleteById(int theId) {
+        Inventory inventory = entityManager.find(Inventory.class,theId);
+        entityManager.remove(inventory);
+    }
     
 }
